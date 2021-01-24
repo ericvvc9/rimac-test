@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/rimac-test/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/rimac-test/static/js/main.8ae31b7d.chunk.js",
+    "main.js.map": "/rimac-test/static/js/main.8ae31b7d.chunk.js.map",
+    "runtime-main.js": "/rimac-test/static/js/runtime-main.f293b36b.js",
+    "runtime-main.js.map": "/rimac-test/static/js/runtime-main.f293b36b.js.map",
+    "static/js/2.18d76ab2.chunk.js": "/rimac-test/static/js/2.18d76ab2.chunk.js",
+    "static/js/2.18d76ab2.chunk.js.map": "/rimac-test/static/js/2.18d76ab2.chunk.js.map",
+    "static/js/3.b8f7c9c8.chunk.js": "/rimac-test/static/js/3.b8f7c9c8.chunk.js",
+    "static/js/3.b8f7c9c8.chunk.js.map": "/rimac-test/static/js/3.b8f7c9c8.chunk.js.map",
+    "index.html": "/rimac-test/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/rimac-test/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.18d76ab2.chunk.js.LICENSE.txt": "/rimac-test/static/js/2.18d76ab2.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/rimac-test/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f293b36b.js",
+    "static/js/2.18d76ab2.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.8ae31b7d.chunk.js"
+  ]
+}
