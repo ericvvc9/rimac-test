@@ -1,0 +1,30 @@
+.benefits {
+  &__list-container{
+    @apply pt-2;
+  }
+  
+  &__list-icon {
+    width:20px;
+    height:20px;
+    margin-right: 12px
+  }
+  
+  &__list-item {
+    @apply flex flex-row text-white hidden;
+    padding: 16px 0;
+    display: none;
+    &-active {
+      @apply flex flex-row text-white;
+      display: block;
+    }
+  }
+}
+
+
+@screen md { 
+  .benefits {
+    &__list-item {
+      @apply block;
+    }
+  }
+}

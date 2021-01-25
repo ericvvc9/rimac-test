@@ -1,0 +1,11 @@
+.button{
+  &__control {
+    padding: 18px 32px ;
+    border-radius: 8px;
+    @apply bg-rimac text-white;
+    &:disabled{
+      background-color: #F0F2FA;
+      color: #C5CBE0;
+    }
+  }
+}
