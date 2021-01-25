@@ -7,15 +7,21 @@ import {
 } from "react-router-dom";
 import Home from '../home/home';
 import AddFamiliars from '../add-familiars/add-familiars';
+import ChoosePlan from '../choose-plan/choose-plan';
 
 function Router() {
   return (
     <>
       <BrowserRouter>
         <Switch>
+          <Route path="/choose-plan">
+            <ChoosePlan />
+          </Route>
+          <Route path="/familiars">
+            <AddFamiliars />
+          </Route>
           <Route path="/">
             <Home />
-            {/* <AddFamiliars /> */}
           </Route>
           {/* <Route path="/about">
             <About />

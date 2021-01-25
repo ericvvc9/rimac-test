@@ -1,12 +1,17 @@
 import React from 'react';
 import './input.scss';
 
-function Input({placeholder = ''}) {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  children?: React.ReactNode;
+}
+
+function Input({placeholder = '',...rest}:InputProps) {
   return (
     <div className="input">
       <input 
         className="input__control"
         placeholder={placeholder}
+        {...rest}
       />
     </div>
   );

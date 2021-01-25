@@ -12,19 +12,28 @@
   &__list-item {
     @apply flex flex-row text-white hidden;
     padding: 16px 0;
-    display: none;
     &-active {
       @apply flex flex-row text-white;
-      display: block;
     }
+  }
+  
+  &__pagination {
+    @apply flex flex-row;
+  }
+  &__arrow{
+    @apply cursor-pointer;
   }
 }
 
 
-@screen md { 
+@screen lg { 
   .benefits {
     &__list-item {
-      @apply block;
+      @apply flex;
+    }
+    &__pagination {
+      @apply hidden;
     }
   }
+  
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './add-familiars.scss';
+import './choose-plan.scss';
 import logo from '../../images/logo.png';
 import family from '../../images/family.png';
 import square from '../../images/square.png';
@@ -9,11 +9,8 @@ import Benefits from '../benefits/benefits';
 import Button from '../button/button';
 import Radio from '../radio/radio';
 import Checkbox from '../checkbox/checkbox';
-import { useHistory } from 'react-router-dom';
 
-function AddFamiliars() {
-  const history = useHistory();
-
+function ChoosePlan() {
   return (
     <div className="add-familiars">
       <div className="grid lg:grid-cols-4">
@@ -40,8 +37,7 @@ function AddFamiliars() {
           <p>Valida que los datos sean correctos.</p>
           <Form
             onSubmit={(values) => {
-              history.push("/choose-plan");
-              //debugger
+              debugger
             }}
             //validate={validate}
             render={({ handleSubmit,values }) => (
@@ -51,37 +47,32 @@ function AddFamiliars() {
                   <Input placeholder="Nro de Documento" />
                 </div>
                 <div>
-                  <Input placeholder="Nombres" />
+                  <Input placeholder="Fecha de nacimiento" />
                 </div>
                 <div>
-                  <Input placeholder="Apellido Paterno" />
+                  <Input placeholder="Celular" />
                 </div>
-                <div>
-                  <Input placeholder="Apellido Materno" />
-                </div>
-                <div>
-                  <Input placeholder="Fecha de Nacimiento" />
-                </div>
-                <div>
-                  Genero
-                </div>
-                <Radio text="Masculino">
-                </Radio>
-                <Radio text="Femenino">
-                </Radio>
-                <div>
-                  ¿A quién vamos a asegurar?
-                </div>
-                <Radio text="Solo a mí">
-                </Radio>
-                <Radio text="A mí y a mi familia">
-                </Radio>
-                <div>
-                  Datos de los familiares
-                </div>
-                <div>
-                  
-                </div>
+
+                <Field name="acceptPolicied">
+                  {props => (
+                    <Checkbox
+                      name={props.input.name}
+                      checked={props.input.value}
+                      onChange={props.input.onChange}
+                      text="Acepto la Política de Protección de Datos Personales y los Términos y Condiciones."
+                    ></Checkbox>
+                  )}
+                </Field>
+                <Field name="acceptComCommertials">
+                  {props => (
+                    <Checkbox
+                      name={props.input.name}
+                      checked={props.input.value}
+                      onChange={props.input.onChange}
+                      text="Acepto la Política de Envío de Comunicaciones Comerciales."
+                    ></Checkbox>
+                  )}
+                </Field>
                 
                 <Button disabled={!values.acceptPolicied || !values.acceptComCommertials} type="submit">
                   Comencemos
@@ -96,4 +87,4 @@ function AddFamiliars() {
   );
 }
 
-export default AddFamiliars;
+export default ChoosePlan;

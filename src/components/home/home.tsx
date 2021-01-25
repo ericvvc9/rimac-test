@@ -9,8 +9,13 @@ import Benefits from '../benefits/benefits';
 import Button from '../button/button';
 import Radio from '../radio/radio';
 import Checkbox from '../checkbox/checkbox';
+import { useHistory } from 'react-router-dom';
+import { getPersonalData } from '../../utils/services';
+import { PersonalData } from '../../models/personal-data';
 
 function Home() {
+  const history = useHistory();
+  
   return (
     <div className="home">
       <div className="grid lg:grid-cols-2 ">
@@ -43,23 +48,36 @@ function Home() {
         <div className="home__form">
           <Form
             onSubmit={(values) => {
-              debugger
+              const request:PersonalData = {
+                birthDate:values.birthdate,
+                documentType:values.documentType,
+                documentNumber:values.documentNumber,
+                phone:values.phone
+              }
+              getPersonalData(request).then((response) => {
+                history.push("/familiars");
+              })
             }}
             //validate={validate}
             render={({ handleSubmit,values }) => (
               <form onSubmit={handleSubmit}>
-                <h2>Obtén tu seguro ahora</h2>
+                <h2 className="home__title-assurance">Obtén tu <span className="home__title-assurance-red">seguro ahora</span></h2>
                 <p>Ingresa los datos para comenzar.</p>
-
-                <div>
-                  <Input placeholder="Nro de Documento" />
-                </div>
-                <div>
-                  <Input placeholder="Fecha de nacimiento" />
-                </div>
-                <div>
-                  <Input placeholder="Celular" />
-                </div>
+                <Field name="documentNumber">
+                  {props => (
+                    <Input {...props.input} placeholder="Nro de Documento" />
+                  )}
+                </Field>
+                <Field name="birthdate">
+                  {props => (
+                    <Input {...props.input} placeholder="Fecha de nacimiento" />
+                  )}
+                </Field>
+                <Field name="phone">
+                  {props => (
+                    <Input {...props.input} placeholder="Celular" />
+                  )}
+                </Field>
 
                 <Field name="acceptPolicied">
                   {props => (

@@ -68,17 +68,17 @@ const Benefits: React.FC<Props>  = () => {
             </li>
           })
         }
-        <div >
-          <div onClick={previous}>
-            bef
+        <div className="benefits__pagination">
+          <div className="benefits__arrow" onClick={previous}>
+            {'<'}
           </div>
           <div>
             {index + 1}
           </div>
           <div>/</div>
           <div>{benefitsList.length}</div>
-          <div onClick={next}>
-            sig
+          <div className="benefits__arrow" onClick={next}>
+            {'>'}
           </div>
         </div>
       </ul>
