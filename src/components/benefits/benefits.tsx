@@ -5,7 +5,6 @@ import mobile from '../../images/icons/gl_mobile-20x20.png'
 import money from '../../images/icons/gl_money-20x20.png'
 import shield from '../../images/icons/gl_shield-20x20.png'
 import classnames from 'classnames';
-import { setIn } from 'final-form';
 
 interface Props {
 
@@ -57,7 +56,7 @@ const Benefits: React.FC<Props>  = () => {
       <ul className="benefits">
         {
           benefitsList.map((benefits:IBenefits,benefitIndex) => {
-            return <li className={classnames(
+            return <li key={benefitIndex} className={classnames(
               "benefits__list-item", 
               {
                 'benefits__list-item-active': benefitIndex === index,
@@ -72,11 +71,13 @@ const Benefits: React.FC<Props>  = () => {
           <div className="benefits__arrow" onClick={previous}>
             {'<'}
           </div>
-          <div>
-            {index + 1}
+          <div className="benefits__number" >
+            0{(index + 1)}
           </div>
           <div>/</div>
-          <div>{benefitsList.length}</div>
+          <div className="benefits__number-secondary" >
+            0{benefitsList.length}
+          </div>
           <div className="benefits__arrow" onClick={next}>
             {'>'}
           </div>

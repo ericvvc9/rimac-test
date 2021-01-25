@@ -18,8 +18,16 @@
   }
   
   &__pagination {
-    @apply flex flex-row;
+    @apply flex flex-row text-white;
   }
+  &__number {
+    margin: 0 12px;
+    &-secondary {
+      margin: 0 12px;
+      color: #FC606B;
+    }
+  }
+
   &__arrow{
     @apply cursor-pointer;
   }
@@ -32,7 +40,7 @@
       @apply flex;
     }
     &__pagination {
-      @apply hidden;
+      @apply hidden 
     }
   }
   

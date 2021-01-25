@@ -1,0 +1,24 @@
+.select-input {
+  &__content {
+    @apply flex;
+    align-items: flex-start;
+  }
+  &__combo {
+    padding: 16.5px;
+    border: 1px solid #C5CBE0;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 16px 0;
+  }
+  &__input {
+    .input__control {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &__alert {
+    @apply text-rimac;
+  }
+}
+

@@ -1,11 +1,13 @@
 import React from 'react';
+import { FieldMetaState } from 'react-final-form';
 import './input.scss';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode;
+  meta?:FieldMetaState<any>
 }
 
-function Input({placeholder = '',...rest}:InputProps) {
+function Input({placeholder = '',meta,...rest}:InputProps) {
   return (
     <div className="input">
       <input 
@@ -13,6 +15,7 @@ function Input({placeholder = '',...rest}:InputProps) {
         placeholder={placeholder}
         {...rest}
       />
+      {meta?.error && meta.touched && <span className="input__alert">{meta.error}</span>}
     </div>
   );
 }

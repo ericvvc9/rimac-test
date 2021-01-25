@@ -3,12 +3,10 @@ import './add-familiars.scss';
 import logo from '../../images/logo.png';
 import family from '../../images/family.png';
 import square from '../../images/square.png';
-import { Field, Form } from 'react-final-form';
+import { Form } from 'react-final-form';
 import Input from '../input/input';
-import Benefits from '../benefits/benefits';
 import Button from '../button/button';
 import Radio from '../radio/radio';
-import Checkbox from '../checkbox/checkbox';
 import { useHistory } from 'react-router-dom';
 
 function AddFamiliars() {

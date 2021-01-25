@@ -7,11 +7,30 @@ import { Field, Form } from 'react-final-form';
 import Input from '../input/input';
 import Benefits from '../benefits/benefits';
 import Button from '../button/button';
-import Radio from '../radio/radio';
 import Checkbox from '../checkbox/checkbox';
 import { useHistory } from 'react-router-dom';
 import { getPersonalData } from '../../utils/services';
 import { PersonalData } from '../../models/personal-data';
+import SelectInput from '../select-input/select-input';
+
+
+const required:(t:any) => undefined | any = value => (value ? undefined : 'Campo obligatorio');
+const mustBeNumber:(t:any) => undefined | any = value => (isNaN(value) ? 'El campo debe ser un numero' : undefined)
+const DOCUMENT_TYPES = [
+  {
+    label: 'DNI',
+    value: 'DNI'
+  },
+  {
+    label: 'RUC',
+    value: 'RUC'
+  },
+  {
+    label: 'C/E',
+    value: 'C/E'
+  },
+] 
+
 
 function Home() {
   const history = useHistory();
@@ -47,7 +66,11 @@ function Home() {
         </div>
         <div className="home__form">
           <Form
+            initialValues={{
+              documentType: 'DNI'
+            }}
             onSubmit={(values) => {
+              debugger
               const request:PersonalData = {
                 birthDate:values.birthdate,
                 documentType:values.documentType,
@@ -58,28 +81,36 @@ function Home() {
                 history.push("/familiars");
               })
             }}
-            //validate={validate}
-            render={({ handleSubmit,values }) => (
+            render={({ handleSubmit,values,invalid }) => (
               <form onSubmit={handleSubmit}>
                 <h2 className="home__title-assurance">Obtén tu <span className="home__title-assurance-red">seguro ahora</span></h2>
                 <p>Ingresa los datos para comenzar.</p>
-                <Field name="documentNumber">
+                <Field name="documentType" >
                   {props => (
-                    <Input {...props.input} placeholder="Nro de Documento" />
+                    <>
+                      <SelectInput options={DOCUMENT_TYPES} meta={props.meta} {...props.input} placeholder="Nro de Documento">
+                        <Field name="documentNumber" validate={required}>
+                          {props => (
+                            <Input meta={props.meta} {...props.input} placeholder="Nro de Documento" />
+                          )}
+                        </Field>
+                      </SelectInput>
+
+                    </>
                   )}
                 </Field>
-                <Field name="birthdate">
+                <Field name="birthdate" validate={required}>
                   {props => (
-                    <Input {...props.input} placeholder="Fecha de nacimiento" />
+                    <Input type="date" meta={props.meta} {...props.input} placeholder="Fecha de nacimiento" />
                   )}
                 </Field>
-                <Field name="phone">
+                <Field name="phone" validate={mustBeNumber}>
                   {props => (
-                    <Input {...props.input} placeholder="Celular" />
+                    <Input meta={props.meta} {...props.input} placeholder="Celular" />
                   )}
                 </Field>
 
-                <Field name="acceptPolicied">
+                <Field name="acceptPolicied" validate={required}>
                   {props => (
                     <Checkbox
                       name={props.input.name}
@@ -89,7 +120,7 @@ function Home() {
                     ></Checkbox>
                   )}
                 </Field>
-                <Field name="acceptComCommertials">
+                <Field name="acceptComCommertials" validate={required}>
                   {props => (
                     <Checkbox
                       name={props.input.name}
@@ -100,7 +131,7 @@ function Home() {
                   )}
                 </Field>
                 
-                <Button disabled={!values.acceptPolicied || !values.acceptComCommertials} type="submit">
+                <Button disabled={invalid} type="submit">
                   Comencemos
                 </Button>
                 

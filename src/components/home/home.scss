@@ -25,7 +25,8 @@
     margin: 0 auto;
   }
   &__main-container {
-    @apply flex flex-row;
+    @apply flex flex-row text-xl;
+    align-items: center;
   }
   &__family-wrapper {
     flex: 1;

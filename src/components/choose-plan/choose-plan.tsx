@@ -5,9 +5,7 @@ import family from '../../images/family.png';
 import square from '../../images/square.png';
 import { Field, Form } from 'react-final-form';
 import Input from '../input/input';
-import Benefits from '../benefits/benefits';
 import Button from '../button/button';
-import Radio from '../radio/radio';
 import Checkbox from '../checkbox/checkbox';
 
 function ChoosePlan() {

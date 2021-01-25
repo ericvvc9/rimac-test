@@ -23,12 +23,6 @@ function Router() {
           <Route path="/">
             <Home />
           </Route>
-          {/* <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route> */}
         </Switch>
       </BrowserRouter>
     </>
