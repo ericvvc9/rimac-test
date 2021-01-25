@@ -44,8 +44,7 @@ function Home() {
           </div>
           <div className="home__content">
             <div className="home__main-container">
-
-              <div>
+              <div className="home__benefits-wrapper">
                 <div className="home__title">
                   Seguro de
                 </div>

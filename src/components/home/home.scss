@@ -28,6 +28,9 @@
     @apply flex flex-row text-xl;
     align-items: center;
   }
+  &__benefits-wrapper {
+    flex:1;
+  }
   &__family-wrapper {
     flex: 1;
   }
@@ -74,7 +77,7 @@
       margin-right:3px
     }
     &__family-image {
-      min-width: 320px;
+      min-width: 220px;
       left: 40%;
     }
   }
