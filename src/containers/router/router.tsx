@@ -10,6 +10,7 @@ import ChoosePlan from '../choose-plan/choose-plan';
 import AddFamiliars from '../add-familiars/add-familiars';
 import Home from '../home/home';
 import { getCurrentUser } from '../../utils/services';
+import FinalStep from '../final-step/final-step';
 
 function PrivateRoute({component:Component ,...rest}: {path: string,component:  any}) {
   return <Route
@@ -37,6 +38,7 @@ function Router() {
         <Switch>
           <PrivateRoute path="/choose-plan" component={ChoosePlan} />
           <PrivateRoute path="/familiars" component={AddFamiliars} />
+          <PrivateRoute path="/thanks" component={FinalStep} />
           {/* <AddFamiliars /> */}
           <Route path="/">
             <Home />
