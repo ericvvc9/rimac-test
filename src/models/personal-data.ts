@@ -6,30 +6,67 @@ export interface PersonalData {
 }
 
 export interface CompletePersonalData {
-  direccion: string;
-  nomCompleto: string;
-  indCrearTercero: string;
-  estadoCivil: string;
-  tipoPersona: string;
-  Telefono: string;
-  apellidoPaterno: string;
-  sexo: string;
-  indRequiereDireccion: string;
-  paisNacimiento: string;
-  nombres: string;
-  stsTercero: string;
-  tipoDocumento: string;
-  apellidoMaterno: string;
-  numDocumento: string;
-  fecNacimiento: string;
-  correo: string;
+  gender: string
+  name: {
+    title: string;
+    first: string;
+    last: string;
+  };
+  location: {
+    street: string;
+    city: string;
+    state: string;
+    postcode: string;
+    coordinates: {
+      latitude: string;
+      longitude: string;
+    },
+    timezone: {
+      offset: string;
+      description: string;
+    }
+  };
+  email: string;
+  login: {
+    uuid: string;
+    username: string;
+    password: string;
+    salt: string;
+    md5: string;
+    sha1: string;
+    sha256: string;
+  };
+  dob: {
+    date: string;
+    age: number
+  };
+  registered: {
+    date: string;
+    age: number
+  },
+  phone: string;
+  cell: string;
+  id: {
+    name: string;
+    value: string;
+  };
+  picture: {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  };
+  nat: string;
+  documentNumber: string;
+  documentType: string;
+  birthDate: Date;
 }
 
 export interface ResponsePersonalData {
-  tipo: "success" | "fail";
-  mensaje: string;
-  titulo: string;
-  data:  {
-    tercero: CompletePersonalData
+  results: Array<CompletePersonalData>;
+  info: {
+    seed: string;
+    results: number;
+    page: number;
+    version: string;
   }
 }

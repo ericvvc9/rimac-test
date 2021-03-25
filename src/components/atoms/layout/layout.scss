@@ -1,20 +1,22 @@
-.header {
-  @apply mx-2 text-white;
-}
-
-
-.home {
-
+.layout {
   &__logo {
     @apply relative z-10;
     padding: 24px 0 24px 32px;
     border-bottom:1px solid #FC4E55;
   }
   &__container {
-    //
     @apply relative;
   }
   &__content {
+    @apply grid grid-cols-1;
+    &--full {
+      @apply grid grid-cols-1;
+    }
+  }
+  &__children {
+    @apply col-span-1;
+  }
+  &__additional-content {
     @apply relative z-10;
     padding: 74px 0 48px 32px;
   }
@@ -33,6 +35,14 @@
   }
   &__family-wrapper {
     flex: 1;
+    position: relative;
+    z-index: 2;
+    &--full {
+      display: none;
+      position: absolute;
+      right: -150px;
+      top: 120px;
+    }
   }
   &__background-square {
     @apply absolute top-0;
@@ -53,35 +63,25 @@
   &__subtitle {
     @apply font-lato text-white text-5xl font-normal	;
   }
-  &__form {
-    width:300px;
-    max-width: 100%;
-    margin: 90px auto 0 auto;
-  }
-  
-}
-
-.footer__text {
-  @apply text-white hidden;
-  margin-top:30px;
 }
 
 @screen lg {
-  /* ... */
-  &__content {
-    @apply relative z-10;
-    padding: 74px 50px 0 120px;
-  }
-  .home {
-    &__logo {
-      margin-right:3px
+  .layout {
+    &__content {
+      @apply grid-cols-2;
+      &--full {
+        @apply grid-cols-4;
+        .layout__children {
+          @apply col-span-3;
+        }
+      }
     }
-    &__family-image {
-      min-width: 220px;
-      left: 40%;
+    &__family-wrapper--full {
+      display:block;
     }
-  }
-  .footer__text {
-    @apply block;
+    &__children {
+      padding: 64px 0 0 0;
+      @apply col-span-1;
+    }
   }
 }

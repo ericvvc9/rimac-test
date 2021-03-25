@@ -1,89 +1,53 @@
 import React from 'react';
 import './home.scss';
-import logo from '../../images/logo.png';
-import family from '../../images/family.png';
-import square from '../../images/square.png';
 import { Field, Form } from 'react-final-form';
-import Input from '../input/input';
-import Benefits from '../benefits/benefits';
-import Button from '../button/button';
-import Checkbox from '../checkbox/checkbox';
+import Input from '../../components/atoms/input/input';
+import Benefits from '../../components/molecules/benefits/benefits';
+import Button from '../../components/atoms/button/button';
+import Checkbox from '../../components/atoms/checkbox/checkbox';
 import { useHistory } from 'react-router-dom';
 import { getPersonalData } from '../../utils/services';
 import { PersonalData } from '../../models/personal-data';
-import SelectInput from '../select-input/select-input';
-
-
-const required:(t:any) => undefined | any = value => (value ? undefined : 'Campo obligatorio');
-const mustBeNumber:(t:any) => undefined | any = value => (isNaN(value) ? 'El campo debe ser un numero' : undefined)
-const DOCUMENT_TYPES = [
-  {
-    label: 'DNI',
-    value: 'DNI'
-  },
-  {
-    label: 'RUC',
-    value: 'RUC'
-  },
-  {
-    label: 'C/E',
-    value: 'C/E'
-  },
-] 
+import SelectInput from '../../components/atoms/select-input/select-input';
+import Layout from '../../components/atoms/layout/layout';
+import { DOCUMENT_TYPES } from '../../constants/documentTypes';
+import { HeaderText } from '../../components/atoms/header-text/header-text';
+import Text from '../../components/atoms/text/text';
+import { mustBeNumber, required } from '../../utils/validation';
 
 
 function Home() {
   const history = useHistory();
-  
+
   return (
-    <div className="home">
-      <div className="grid lg:grid-cols-2 ">
-        <div className="home__container">
-          <div className="home__logo">
-            <img alt="Logo Rimac"src={logo} />
-          </div>
-          <div className="home__content">
-            <div className="home__main-container">
-              <div className="home__benefits-wrapper">
-                <div className="home__title">
-                  Seguro de
-                </div>
-                <div className="home__subtitle">
-                  Salud
-                </div>
-                <Benefits />
-              </div>
-              <div className="home__family-wrapper">
-                <img className="home__family-image" alt="Familia Rimac"src={family} />
-              </div>
-            </div>
-            <footer className="footer">
-              <p className="footer__text">© 2020 RIMAC Seguros y Reaseguros.</p>
-            </footer>
-          </div>
-          <img className="home__background-square" alt="Fondo Rimac"src={square} />
-        </div>
+    <Layout homePage>
+      <div className="home">
         <div className="home__form">
           <Form
             initialValues={{
               documentType: 'DNI'
             }}
             onSubmit={(values) => {
-              debugger
-              const request:PersonalData = {
-                birthDate:values.birthdate,
-                documentType:values.documentType,
-                documentNumber:values.documentNumber,
-                phone:values.phone
+              const request: PersonalData = {
+                birthDate: values.birthdate,
+                documentType: values.documentType,
+                documentNumber: values.documentNumber,
+                phone: values.phone
               }
               getPersonalData(request).then((response) => {
                 history.push("/familiars");
               })
             }}
-            render={({ handleSubmit,values,invalid }) => (
+            render={({ handleSubmit, values, invalid }) => (
               <form onSubmit={handleSubmit}>
-                <h2 className="home__title-assurance">Obtén tu <span className="home__title-assurance-red">seguro ahora</span></h2>
-                <p>Ingresa los datos para comenzar.</p>
+                <HeaderText
+                  fontSize="small"
+                  firstText="Obtén tu"
+                  secondText=" seguro ahora"
+                ></HeaderText>
+                <Text>
+                  Ingresa los datos para comenzar.
+                </Text>
                 <Field name="documentType" >
                   {props => (
                     <>
@@ -94,7 +58,6 @@ function Home() {
                           )}
                         </Field>
                       </SelectInput>
-
                     </>
                   )}
                 </Field>
@@ -129,17 +92,16 @@ function Home() {
                     ></Checkbox>
                   )}
                 </Field>
-                
+
                 <Button disabled={invalid} type="submit">
                   Comencemos
                 </Button>
-                
               </form>
             )}
           />
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

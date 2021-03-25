@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './benefits.scss';
-import clinic from '../../images/icons/gl_clinic-20x20.png'
-import mobile from '../../images/icons/gl_mobile-20x20.png'
-import money from '../../images/icons/gl_money-20x20.png'
-import shield from '../../images/icons/gl_shield-20x20.png'
+import clinic from '../../../images/icons/gl_clinic-20x20.png'
+import mobile from '../../../images/icons/gl_mobile-20x20.png'
+import money from '../../../images/icons/gl_money-20x20.png'
+import shield from '../../../images/icons/gl_shield-20x20.png'
 import classnames from 'classnames';
 
 interface Props {

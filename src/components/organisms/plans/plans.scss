@@ -1,0 +1,8 @@
+.plans {
+  &__square {
+    @apply border-gray-border;
+    &-active {
+      @apply border-green-500;
+    }
+  }
+}

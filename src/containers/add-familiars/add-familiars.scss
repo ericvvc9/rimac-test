@@ -1,0 +1,23 @@
+.header {
+  @apply mx-2 text-white;
+}
+
+.add-familiars {
+  &__form {
+    @apply col-span-3;
+    width:500px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@screen lg {
+  /* ... */
+  
+  .add-familiars {
+    &__logo {
+      @apply relative z-10 bg-transparent;
+      margin-right:3px
+    }
+  }
+}

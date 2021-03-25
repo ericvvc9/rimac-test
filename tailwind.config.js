@@ -9,7 +9,14 @@ module.exports = {
       current: 'currentColor',
       black: colors.black,
       white: colors.white,
-      gray: colors.trueGray,
+      gray: {
+        default: '#A3ABCC',
+        paragraph: '#676F8F',
+        border: '#F0F2FA'
+      },
+      green: {
+        500: '#83CC5E'
+      },
       indigo: colors.indigo,
       red: colors.red,
       primary: '#EF3340',
@@ -24,7 +31,7 @@ module.exports = {
         'serif': ['ui-serif', 'Georgia'],
         'mono': ['ui-monospace', 'SFMono-Regular'],
         'display': ['Oswald'], */
-        'lato': ['lato'],
+        'lato': ['Lato'],
       },
     },
   },

@@ -1,0 +1,14 @@
+.header-text {
+  font-size: 28px;
+  &--large {
+    font-size: 40px;
+  }
+  &__first-text {
+    font-weight: 300;
+    @apply text-gray-default;
+  }
+  &__second-text{
+    font-weight: 400;
+    @apply text-primary;
+  }
+}

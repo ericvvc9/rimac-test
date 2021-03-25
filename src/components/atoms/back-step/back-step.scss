@@ -1,0 +1,19 @@
+.back-step {
+  @apply flex items-center;
+  position: relative;
+  &__image{
+    position: absolute;
+    left: -32px;
+    width: 24px;
+    @apply cursor-pointer;
+  }
+  &__completed {
+    @apply text-primary;
+  }
+  &__uncompleted{
+    @apply text-gray-default;
+  }
+  &__text {
+    font-size: 12px
+  }
+}
