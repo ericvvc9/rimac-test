@@ -12,7 +12,7 @@ module.exports = {
       gray: {
         default: '#A3ABCC',
         paragraph: '#676F8F',
-        border: '#F0F2FA'
+        border: '#E4E8F7',
       },
       green: {
         500: '#83CC5E'

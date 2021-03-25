@@ -1,0 +1,15 @@
+.footer-plan {
+  &__services {
+    border-bottom: 1px solid;
+    @apply flex border-gray-border justify-between items-center;
+  }
+  &__review-text{
+    font-size: 20px;
+    font-weight: 300;
+    @apply text-gray-default;
+  }
+  &__services-text{
+    font-size: 20px;
+    @apply text-primary;
+  }
+}

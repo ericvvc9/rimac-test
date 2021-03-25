@@ -1,8 +1,40 @@
 .plans {
+  @apply grid grid-flow-col ;
   &__square {
-    @apply border-gray-border;
-    &-active {
-      @apply border-green-500;
+    width:112px;
+    border-width: 4px;
+    border-radius: 12px;
+    padding:24px 16px;
+    @apply border border-gray-border cursor-pointer;
+    &-active,&:hover {
+      @apply border border-green-500;
     }
+  }
+  &__amount-wrap {
+    @apply flex items-center;
+  }
+  &__currency {
+
+  }
+  &__label {
+    font-size: 10px;
+  }
+  &__amount {
+    font-size: 28px;
+  }
+  &__term {
+    font-size: 12px;
+  }
+  &__check {
+    width: 16px;
+    height: 16px;
+    @apply flex items-center justify-center border-gray-border;
+    position: absolute;
+    right: 0;
+    top: 0;
+    &__check-active {
+      @apply border-green-500 bg-green-500;
+    }
+    //background-color: red;
   }
 }
