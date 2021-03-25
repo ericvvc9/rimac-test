@@ -4,7 +4,7 @@
     align-items: flex-start;
   }
   &__combo {
-    padding: 16.5px;
+    padding: 17.5px;
     border: 1px solid #C5CBE0;
     border-radius: 5px;
     border-top-right-radius: 0;
@@ -12,6 +12,7 @@
     margin: 16px 0;
   }
   &__input {
+    width: 100%;
     .input__control {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;

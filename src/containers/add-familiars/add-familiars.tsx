@@ -142,7 +142,7 @@ function AddFamiliars() {
                   <div>
                     <Field name="relativeType" >
                       {props => (
-                        <>
+                        <div className="add-familiars__row">
                           <SelectInput options={RELATIVES} meta={props.meta} {...props.input} placeholder="Vinculo">
                             <Field name="relativeBirthDate" >
                               {props => (
@@ -152,6 +152,7 @@ function AddFamiliars() {
                           </SelectInput>
                           <Button
                             type="button"
+                            typeButton="text"
                             onClick={() => {
                               if(values.relativeType && values.relativeBirthDate ) {
                                 push('relatives', {
@@ -160,7 +161,7 @@ function AddFamiliars() {
                                 })
                               }
                             }}>Agregar</Button>
-                        </>
+                        </div>
                       )}
                     </Field>
                     <FieldArray name="relatives">
@@ -170,10 +171,12 @@ function AddFamiliars() {
                             <Field
                               name={`${name}.relative`}
                               component="input"
+                              disabled
                               placeholder="First Name"
                             />
                             <Field
                               name={`${name}.birthdate`}
+                              disabled
                               component="input"
                               placeholder="Last Name"
                             />
@@ -191,7 +194,7 @@ function AddFamiliars() {
                 </Condition>
 
                 <Button type="submit">
-                  Comencemos
+                  Continuar
                 </Button>
 
               </form>

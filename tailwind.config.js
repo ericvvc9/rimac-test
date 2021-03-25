@@ -17,6 +17,9 @@ module.exports = {
       green: {
         500: '#83CC5E'
       },
+      acian: {
+        100: '#939DFF'
+      },
       indigo: colors.indigo,
       red: colors.red,
       primary: '#EF3340',
